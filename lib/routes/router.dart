@@ -23,5 +23,9 @@ final router = GoRouter(
       path: '/setting',
       builder: (context, state) => const SettingPage(),
     ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingPage(),
+    ),
   ],
 );
