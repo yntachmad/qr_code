@@ -7,23 +7,24 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('All Product'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                // GoRouter.of(context).push('/setting');
-                context.go('/setting');
-              },
-              child: const Text('Product Pages'),
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text('All Product'),
         ),
-      ),
-    );
+        body: ListView.builder(
+          itemCount: 20,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text('Product ${index + 1}'),
+              leading: CircleAvatar(
+                child: Text('${index + 1}'),
+              ),
+              onTap: () {
+                // GoRouter.of(context).push('/product');
+                // parsing parameters
+                context.go('/product/detail');
+              },
+            );
+          },
+        ));
   }
 }

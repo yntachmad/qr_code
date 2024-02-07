@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                // GoRouter.of(context).push('/setting');
-                context.go('/setting');
+                GoRouter.of(context).go('/settings');
+                // context.go('/setting');
               },
               child: const Text('Settings Pages'),
             ),
