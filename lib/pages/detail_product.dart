@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailProductPage extends StatelessWidget {
-  const DetailProductPage({super.key});
-  // final String id;
+  const DetailProductPage({this.id, this.data, super.key});
+  final String? id;
+  final Map<String, dynamic>? data;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +11,8 @@ class DetailProductPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detail Product Page'),
       ),
-      body: const Center(
-        child: Text('Detail Product Page'),
+      body: Center(
+        child: Text(data.toString()),
       ),
     );
   }
