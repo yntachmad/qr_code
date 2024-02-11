@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../bloc.dart';
+
 // import 'package:meta/meta.dart';
 
 part 'auth_event.dart';

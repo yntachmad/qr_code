@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:qr_code/routes/router.dart';
 
-import '../bloc/bloc/auth_bloc.dart';
+import '../bloc/bloc.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
