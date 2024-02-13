@@ -5,6 +5,7 @@ import 'package:qr_code/pages/detail_product.dart';
 import 'package:qr_code/pages/home_page.dart';
 import 'package:qr_code/pages/product_page.dart';
 
+// import '../models/product.dart';
 import '../models/product.dart';
 import '../pages/error_page.dart';
 import '../pages/login_page.dart';
@@ -43,9 +44,18 @@ final router = GoRouter(
             GoRoute(
               path: ':productId',
               name: Routers.detailProduct,
-              builder: (context, state) => DetailProductPage(
-                  state.pathParameters['productId'].toString(),
-                  state.extra as Product),
+              builder: (context, state) {
+                final id = state.pathParameters['productId'].toString();
+                final dataProduct = state.extra as Product;
+                return DetailProductPage(productId: id, data: dataProduct);
+              },
+
+              // }, => DetailProductPage(
+              //   // state.pathParameters['productId'].toString(),
+
+              //   // state.params['productId'].toString(),
+              //   // state.extra as Product,
+              // ),
             ),
           ],
         ),

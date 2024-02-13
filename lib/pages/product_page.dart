@@ -57,14 +57,17 @@ class ProductPage extends StatelessWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(9),
                     onTap: () {
-                      // print('detail Product');
-                      context.goNamed(Routers.detailProduct,
-                          pathParameters: {
-                            "productId": product.productId!,
-                          },
-                          extra: Product
-                          // queryParameters: {},
-                          );
+                      print('detail Product');
+                      context.goNamed(
+                        Routers.detailProduct,
+                        pathParameters: {
+                          'productId': product.code.toString(),
+                        },
+                        extra: Product,
+
+                        // extra: Product,
+                        // // queryParameters: {},
+                      );
                     },
                     child: Container(
                       height: 110,

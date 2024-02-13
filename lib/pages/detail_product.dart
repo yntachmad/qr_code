@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../models/product.dart';
 
+// import '../models/product.dart';
+
 class DetailProductPage extends StatelessWidget {
-  const DetailProductPage(this.id, this.data, {super.key});
-  final String? id;
+  const DetailProductPage(
+      {required this.productId, required this.data, super.key});
+  final String productId;
   final Product data;
 
   @override
@@ -12,9 +15,12 @@ class DetailProductPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Product Page'),
+        centerTitle: true,
       ),
-      body: Center(
-        child: Text(data.toString()),
+      body: const Center(
+        child: Text(
+          'Test',
+        ),
       ),
     );
   }
