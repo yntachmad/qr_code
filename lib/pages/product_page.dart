@@ -49,21 +49,22 @@ class ProductPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 Product product = allProducts[index];
                 return Card(
-                  elevation: 9,
-                  margin: const EdgeInsets.only(bottom: 20),
+                  elevation: 5,
+                  margin: const EdgeInsets.only(bottom: 5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(9),
                   ),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(9),
                     onTap: () {
-                      context.goNamed(
-                        Routers.detailProduct,
-                        pathParameters: {
-                          "productId": product.productId!,
-                        },
-                        queryParameters: {},
-                      );
+                      // print('detail Product');
+                      context.goNamed(Routers.detailProduct,
+                          pathParameters: {
+                            "productId": product.productId!,
+                          },
+                          extra: Product
+                          // queryParameters: {},
+                          );
                     },
                     child: Container(
                       height: 110,
