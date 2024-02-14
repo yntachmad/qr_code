@@ -64,7 +64,6 @@ class ProductPage extends StatelessWidget {
                           'productId': product.code.toString(),
                         },
                         extra: product,
-
                         // extra: Product,
                         // // queryParameters: {},
                       );
@@ -87,7 +86,7 @@ class ProductPage extends StatelessWidget {
                                   height: 2,
                                 ),
                                 Text(product.name!),
-                                Text("Jumlah : ${product.qty!}"),
+                                Text("Jumlah : ${product.quantity!}"),
                               ],
                             ),
                           ),
