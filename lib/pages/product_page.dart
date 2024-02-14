@@ -63,7 +63,7 @@ class ProductPage extends StatelessWidget {
                         pathParameters: {
                           'productId': product.code.toString(),
                         },
-                        extra: Product,
+                        extra: product,
 
                         // extra: Product,
                         // // queryParameters: {},

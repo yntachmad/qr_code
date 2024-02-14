@@ -17,9 +17,9 @@ class DetailProductPage extends StatelessWidget {
         title: const Text('Detail Product Page'),
         centerTitle: true,
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'Test',
+          data.name.toString(),
         ),
       ),
     );
