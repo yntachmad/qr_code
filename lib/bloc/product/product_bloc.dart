@@ -82,13 +82,35 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       // Delete Product to cloud firebase
       try {
         emit(ProductStateExportLoading());
+        // print('test export');
+
+        var querySnap = await firebaseFirestore
+            .collection("products")
+            .withConverter<Product>(
+              fromFirestore: (snapshot, _) =>
+                  Product.fromJson(snapshot.data()!),
+              toFirestore: (product, _) => product.toJson(),
+            )
+            .get();
+
+        List<Product> allProduct = [];
+        for (var element in querySnap.docs) {
+          Product product = element.data();
+          allProduct.add(product);
+
+          // allProduct.add(
+          //   Product.fromJson(
+          //     element.data(),
+          //   ),
+          // );
+        }
         // await firebaseFirestore.collection("products").doc(event.code).delete();
         //fetching data all Product
 
         //Create Pdf
 
         //Open File
-        emit(ProductStateExportComplete());
+        // emit(ProductStateExportComplete());
       } on FirebaseException catch (e) {
         emit(
           ProductStateError(

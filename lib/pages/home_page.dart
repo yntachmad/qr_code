@@ -65,14 +65,33 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: Icon(
-                        icon,
-                        size: 50,
-                      ),
-                    ),
+                    (index == 3)
+                        ? BlocConsumer<ProductBloc, ProductState>(
+                            listener: (context, state) {
+                              // TODO: implement listener
+                            },
+                            builder: (context, state) {
+                              if (state is ProductStateExportLoading) {
+                                return const CircularProgressIndicator();
+                              }
+                              return SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: Icon(
+                                  icon,
+                                  size: 50,
+                                ),
+                              );
+                            },
+                          )
+                        : SizedBox(
+                            height: 50,
+                            width: 50,
+                            child: Icon(
+                              icon,
+                              size: 50,
+                            ),
+                          ),
                     const SizedBox(
                       height: 10,
                     ),
