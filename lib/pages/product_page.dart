@@ -57,7 +57,6 @@ class ProductPage extends StatelessWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(9),
                     onTap: () {
-                      print('detail Product');
                       context.goNamed(
                         Routers.detailProduct,
                         pathParameters: {

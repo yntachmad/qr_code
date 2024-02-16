@@ -9,9 +9,17 @@ sealed class ProductState {}
 
 final class ProductStateInitial extends ProductState {}
 
-class ProductStateLoading extends ProductState {}
+class ProductStateAddLoading extends ProductState {}
 
-class ProductStateComplete extends ProductState {}
+class ProductStateEditLoading extends ProductState {}
+
+class ProductStateDeleteLoading extends ProductState {}
+
+class ProductStateAddComplete extends ProductState {}
+
+class ProductStateEditComplete extends ProductState {}
+
+class ProductStateDeleteComplete extends ProductState {}
 
 class ProductStateError extends ProductState {
   final String message;

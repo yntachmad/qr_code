@@ -96,7 +96,7 @@ class AddProductPage extends StatelessWidget {
                       ),
                     );
                   }
-                  if (state is ProductStateComplete) {
+                  if (state is ProductStateAddComplete) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text("Data Product berhasil disimpan"),
@@ -109,7 +109,7 @@ class AddProductPage extends StatelessWidget {
                 builder: (context, state) {
                   return BlocBuilder<ProductBloc, ProductState>(
                     builder: (context, state) {
-                      return Text(state is ProductStateLoading
+                      return Text(state is ProductStateAddLoading
                           ? "LOADING"
                           : "ADD PRODUCT");
                       // if (state is ProductStateLoading) {

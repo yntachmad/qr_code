@@ -23,7 +23,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<ProductEventAddProduct>((event, emit) async {
       // Add Product to cloud firebase
       try {
-        emit(ProductStateLoading());
+        emit(ProductStateAddLoading());
         var hasil = await firebaseFirestore.collection("products").add(
           {"name": event.name, "code": event.code, "quantity": event.quantity},
         );
@@ -31,7 +31,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             .collection("products")
             .doc(hasil.id)
             .update({"productID": hasil.id});
-        emit(ProductStateComplete());
+        emit(ProductStateAddComplete());
       } on FirebaseException catch (e) {
         emit(
           ProductStateError(message: e.message ?? "Tidak dapat maenambah data"),
@@ -42,11 +42,41 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         );
       }
     });
-    on<ProductEventEditProduct>((event, emit) {
-      // Add Product to cloud firebase
+    on<ProductEventEditProduct>((event, emit) async {
+      // Edit Product to cloud firebase
+      try {
+        emit(ProductStateEditLoading());
+        await firebaseFirestore
+            .collection("products")
+            .doc(event.productId)
+            .update({"name": event.name, "quantity": event.quantity});
+        emit(ProductStateEditComplete());
+      } on FirebaseException catch (e) {
+        emit(
+          ProductStateError(message: e.message ?? "Tidak dapat mengubah data"),
+        );
+      } catch (e) {
+        emit(
+          ProductStateError(message: "Tidak dapat mengubah data"),
+        );
+      }
     });
-    on<ProductEventDeleteProduct>((event, emit) {
-      // Add Product to cloud firebase
+    on<ProductEventDeleteProduct>((event, emit) async {
+      // Delete Product to cloud firebase
+      try {
+        emit(ProductStateDeleteLoading());
+        await firebaseFirestore.collection("products").doc(event.code).delete();
+        emit(ProductStateDeleteComplete());
+      } on FirebaseException catch (e) {
+        emit(
+          ProductStateError(
+              message: e.message ?? "Tidak dapat menghapus data FireBase"),
+        );
+      } catch (e) {
+        emit(
+          ProductStateError(message: "Tidak dapat menghapus data"),
+        );
+      }
     });
   }
 }
