@@ -78,5 +78,27 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         );
       }
     });
+    on<ProductEventExportToPdfProduct>((event, emit) async {
+      // Delete Product to cloud firebase
+      try {
+        emit(ProductStateExportLoading());
+        // await firebaseFirestore.collection("products").doc(event.code).delete();
+        //fetching data all Product
+
+        //Create Pdf
+
+        //Open File
+        emit(ProductStateExportComplete());
+      } on FirebaseException catch (e) {
+        emit(
+          ProductStateError(
+              message: e.message ?? "Tidak dapat menghapus data FireBase"),
+        );
+      } catch (e) {
+        emit(
+          ProductStateError(message: "Tidak dapat menghapus data"),
+        );
+      }
+    });
   }
 }

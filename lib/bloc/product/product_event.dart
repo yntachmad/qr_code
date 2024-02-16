@@ -31,3 +31,5 @@ class ProductEventDeleteProduct extends ProductEvent {
     required this.code,
   });
 }
+
+class ProductEventExportToPdfProduct extends ProductEvent {}

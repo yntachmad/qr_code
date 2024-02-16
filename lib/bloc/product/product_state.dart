@@ -15,11 +15,15 @@ class ProductStateEditLoading extends ProductState {}
 
 class ProductStateDeleteLoading extends ProductState {}
 
+class ProductStateExportLoading extends ProductState {}
+
 class ProductStateAddComplete extends ProductState {}
 
 class ProductStateEditComplete extends ProductState {}
 
 class ProductStateDeleteComplete extends ProductState {}
+
+class ProductStateExportComplete extends ProductState {}
 
 class ProductStateError extends ProductState {
   final String message;

@@ -48,7 +48,11 @@ class HomePage extends StatelessWidget {
             case 3:
               title = 'Katalog';
               icon = Icons.document_scanner_outlined;
-              onTap = () {};
+              onTap = () {
+                context
+                    .read<ProductBloc>()
+                    .add(ProductEventExportToPdfProduct());
+              };
               break;
           }
 
