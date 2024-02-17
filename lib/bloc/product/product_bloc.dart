@@ -104,12 +104,12 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             product: querySnap.docs.first.data(), code: event.code));
       } on FirebaseException catch (e) {
         emit(
-          ProductStateError(
-              message: e.message ?? "Tidak dapat menghapus data FireBase"),
+          ProductStateErrorDetail(
+              message: e.message ?? "Tidak dapat menampilkan data FireBase"),
         );
       } catch (e) {
         emit(
-          ProductStateError(message: "Tidak dapat menghapus data"),
+          ProductStateErrorDetail(message: "Tidak dapat menampilkan data"),
         );
       }
     });

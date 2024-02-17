@@ -32,6 +32,15 @@ class HomePage extends StatelessWidget {
               // // queryParameters: {},
             );
           }
+
+          if (state is ProductStateErrorDetail) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+                duration: const Duration(seconds: 2),
+              ),
+            );
+          }
         },
         child: GridView.builder(
           padding: const EdgeInsets.all(20),

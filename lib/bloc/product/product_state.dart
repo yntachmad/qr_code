@@ -39,3 +39,9 @@ class ProductStateError extends ProductState {
 
   ProductStateError({required this.message});
 }
+
+class ProductStateErrorDetail extends ProductState {
+  final String message;
+
+  ProductStateErrorDetail({required this.message});
+}
