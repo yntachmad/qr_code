@@ -33,3 +33,9 @@ class ProductEventDeleteProduct extends ProductEvent {
 }
 
 class ProductEventExportToPdfProduct extends ProductEvent {}
+
+class ProductEventDetailProduct extends ProductEvent {
+  final String code;
+
+  ProductEventDetailProduct({required this.code});
+}
